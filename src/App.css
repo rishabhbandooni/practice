@@ -1,0 +1,58 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.Card {
+  height: 70vh;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.CardImage {
+  height: 200px !important;
+  object-fit: contain !important;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.CardImage:hover {
+  transform: scale(1.1);
+}
+.Header {
+  height: 15vh !important;
+}
+.button1 {
+  min-width: 22vw !important;
+}
+
+.HeaderContent {
+  color: grey;
+}
+.CardContentData {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.uigridcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100vw !important;
+}
+.LinkCart {
+  text-decoration: none;
+  color: white;
+}
+.LinkCart:hover {
+  text-decoration: none;
+  color: white;
+}
