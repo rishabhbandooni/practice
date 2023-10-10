@@ -12,10 +12,10 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+
+import TextField from "@mui/material/TextField";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
+
 import { FilterList, ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -61,7 +61,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Header() {
+export default function Header({ setSearchQuery }) {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -173,44 +173,49 @@ export default function Header() {
             </Typography>
           </Link>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={1} color="error">
-                <FilterList />
+          {/* <Box sx={{ display: { xs: "none", md: "flex" } }}> */}
+          <TextField
+            id="search-bar"
+            className="text"
+            onInput={(e) => {
+              setSearchQuery(e.target.value);
+            }}
+            label="Search Products"
+            variant="outlined"
+            placeholder="Search..."
+            size="small"
+          />
+          <IconButton type="submit" aria-label="search">
+            <SearchIcon style={{ fill: "blue" }} />
+          </IconButton>
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <Badge badgeContent={1} color="error">
+              <FilterList />
+            </Badge>
+          </IconButton>
+          <IconButton size="large" aria-label="Cart Items" color="inherit">
+            <Link className="LinkCart" to={"/cart"}>
+              <Badge badgeContent={cartItems.length} color="error">
+                <ShoppingCart />
               </Badge>
-            </IconButton>
-            <IconButton size="large" aria-label="Cart Items" color="inherit">
-              <Link className="LinkCart" to={"/cart"}>
-                <Badge badgeContent={cartItems.length} color="error">
-                  <ShoppingCart />
-                </Badge>
-              </Link>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
+            </Link>
+          </IconButton>
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="account of current user"
+            aria-controls={menuId}
+            aria-haspopup="true"
+            onClick={handleProfileMenuOpen}
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+          {/* </Box> */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"

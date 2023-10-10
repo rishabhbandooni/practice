@@ -60,7 +60,7 @@ const ProductDetails = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Add To Cart1</Button>
+              <Button size="small">Add To Cart</Button>
               <Button size="small">Learn More</Button>
             </CardActions>
           </Card>

@@ -22,3 +22,12 @@ export const selectedProductsReducer = (state = {}, { type, payload }) => {
       return state;
   }
 };
+export const filteredProductsReducer = (state = {}, { type, payload }) => {
+  // console.log(type, "Type");
+  switch (type) {
+    case ActionTypes.FILTERED_PRODUCT:
+      return { ...state, ...payload };
+    default:
+      return state;
+  }
+};

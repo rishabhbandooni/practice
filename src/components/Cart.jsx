@@ -1,4 +1,3 @@
-// Cart.js
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@mui/styles";
